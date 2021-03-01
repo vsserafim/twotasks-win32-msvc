@@ -1,0 +1,49 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: build main.c",
+			"command": "cl.exe",
+			"args": [
+				"/I${workspaceFolder}\\include\\",
+				"/I${FREERTOS_PATH}\\FreeRTOS\\Source\\include\\",
+				"/I${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MSVC-MingW\\",
+				"/Zi",
+				"/EHsc",
+				"/nologo",
+				"/Fe:",
+				"${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+				"${workspaceFolder}\\src\\main.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\tasks.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\queue.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\timers.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\list.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MemMang\\heap_3.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MSVC-MingW\\port.c"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\build"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: cl.exe"
+		},
+		{
+			"label": "C/C++: clean build",
+			"type": "shell",
+			"command": "del ${workspaceFolder}\\build\\*.*",
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"problemMatcher": []
+		}
+	]
+}
